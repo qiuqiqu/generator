@@ -11,7 +11,7 @@ import java.nio.file.StandardCopyOption;
 
 public class StaticGenerator {
     /**
-     *拷贝文件
+     *拷贝文件(生成静态模板)
      * @param srcPath 源文件或目录
      * @param destPath 目标文件或目录
      */

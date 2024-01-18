@@ -1,4 +1,4 @@
-package com.gygenerator;
+package com;
 
 import java.io.File;
 
