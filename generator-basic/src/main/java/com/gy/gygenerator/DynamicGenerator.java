@@ -1,7 +1,7 @@
-package com.gygenerator;
+package com.gy.gygenerator;
 
 
-import com.model.MainTemplateConfig;
+import com.gy.model.MainTemplateConfig;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -17,7 +17,7 @@ public class DynamicGenerator {
         String inputPath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
         String outputPath = projectPath + File.separator + "MainTemplate.java";
         MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("yupi");
+        mainTemplateConfig.setAuthor("秋秋南");
         mainTemplateConfig.setLoop(false);
         mainTemplateConfig.setOutputText("求和结果：");
         doGenerate(inputPath, outputPath, mainTemplateConfig);
@@ -48,10 +48,10 @@ public class DynamicGenerator {
         Template template = configuration.getTemplate(templateName);
 
         // 创建数据模型
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("yupi");
+       /* MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
+        mainTemplateConfig.setAuthor("秋秋南");
         mainTemplateConfig.setLoop(false);
-        mainTemplateConfig.setOutputText("求和结果：");
+        mainTemplateConfig.setOutputText("求和结果：");*/
 
         // 生成
         Writer out = new FileWriter(outputPath);

@@ -2,7 +2,7 @@ package com;
 
 import java.io.File;
 
-import static com.gygenerator.StaticGenerator.copyFilesByHutool;
+import static com.gy.gygenerator.StaticGenerator.copyFilesByHutool;
 
 public class Main {
     public static void main(String[] args) {

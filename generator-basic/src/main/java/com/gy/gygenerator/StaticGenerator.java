@@ -1,4 +1,4 @@
-package com.gygenerator;
+package com.gy.gygenerator;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ArrayUtil;
