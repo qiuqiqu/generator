@@ -1,19 +1,13 @@
 package com;
 
-import java.io.File;
-
-import static com.gy.gygenerator.StaticGenerator.copyFilesByHutool;
+import com.gy.cli.command.CommandExecutor;
 
 public class Main {
     public static void main(String[] args) {
-        // 获取整个项目的根路径
-        String outputPath = System.getProperty("user.dir");
-        String outputPath2=outputPath+"\\generator-basic";
-        File projectFile = new File(outputPath);
-        // 输入路径：ACM 示例代码模板目录
-        String inputPath = new File(projectFile, "generator-demo-projects/acm-template").getAbsolutePath();
-        System.out.println("inputPath:"+inputPath);
-        System.out.println("outputPath:"+outputPath2);
-        copyFilesByHutool(inputPath, outputPath2);
+        args = new String[]{"generate", "-l", "-a", "-o"};
+//        args = new String[]{"config"};
+//        args = new String[]{"list"};
+        CommandExecutor commandExecutor = new CommandExecutor();
+        commandExecutor.doExecute(args);
     }
 }
