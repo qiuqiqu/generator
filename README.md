@@ -13,7 +13,7 @@
 
 
 
-![](https://pic.yupi.icu/1/1698933854908-e93e1a08-0d82-4ce2-a020-00522bb10403.png)
+![](https://pic.gy.icu/1/1698933854908-e93e1a08-0d82-4ce2-a020-00522bb10403.png)
 
 
 
@@ -39,7 +39,7 @@
 
 
 
-![](https://pic.yupi.icu/1/1698933854913-c0593377-66c7-4fad-b0de-559d83f28a4e.png)
+![](https://pic.gy.icu/1/1698933854913-c0593377-66c7-4fad-b0de-559d83f28a4e.png)
 
 
 
@@ -148,9 +148,9 @@
 
 Web Framework Benchmarks 性能对比网站：https://www.techempower.com/benchmarks/#section=data-r21&test=composite
 
-![](https://pic.yupi.icu/1/1698810692479-1ab9f790-eebb-47e5-84fb-1db6775c03bc-20231103004416471.png)
+![](https://pic.gy.icu/1/1698810692479-1ab9f790-eebb-47e5-84fb-1db6775c03bc-20231103004416471.png)
 
-![](https://pic.yupi.icu/1/1698810756154-01c4352e-aa62-4b99-b5ec-45479adb0e69-20231103004420429.png)
+![](https://pic.gy.icu/1/1698810756154-01c4352e-aa62-4b99-b5ec-45479adb0e69-20231103004420429.png)
 
 
 
@@ -230,7 +230,7 @@ Web Framework Benchmarks 性能对比网站：https://www.techempower.com/benchm
 
 流程图如下：
 
-![](https://pic.yupi.icu/1/1698930303648-d82309e8-bbde-43dd-adb2-9d0c647e1e40-20231103004425416.jpeg)
+![](https://pic.gy.icu/1/1698930303648-d82309e8-bbde-43dd-adb2-9d0c647e1e40-20231103004425416.jpeg)
 
 
 
@@ -283,7 +283,7 @@ Web Framework Benchmarks 性能对比网站：https://www.techempower.com/benchm
 
 流程图如下：
 
-![](https://pic.yupi.icu/1/1698843403252-3ee97aaa-c20e-4922-ae0e-1195b44e1c3b-20231103004430323.jpeg)
+![](https://pic.gy.icu/1/1698843403252-3ee97aaa-c20e-4922-ae0e-1195b44e1c3b-20231103004430323.jpeg)
 
 
 
@@ -321,7 +321,7 @@ Web Framework Benchmarks 性能对比网站：https://www.techempower.com/benchm
 
 本阶段我们的终极目标是，在平台上制作和发布项目 “换皮” 工具，帮助小伙伴们一键给网络热门项目换皮！
 
-![](https://pic.yupi.icu/1/1698844599236-cdc91554-bcfe-4028-84b6-2dffb082ed94.png)
+![](https://pic.gy.icu/1/1698844599236-cdc91554-bcfe-4028-84b6-2dffb082ed94.png)
 
 
 
@@ -339,7 +339,7 @@ Web Framework Benchmarks 性能对比网站：https://www.techempower.com/benchm
 
 完整业务流程图如下：
 
-![](https://pic.yupi.icu/1/1698931262679-a16ecd8d-4d4c-4c8d-bdcc-eab7554ab10c-20231103004438590.jpeg)
+![](https://pic.gy.icu/1/1698931262679-a16ecd8d-4d4c-4c8d-bdcc-eab7554ab10c-20231103004438590.jpeg)
 
 
 

@@ -1,7 +1,8 @@
-package com.gy.gygenerator;
+package com.gy.maker.generator.file;
 
 
-import com.gy.model.MainTemplateConfig;
+
+import com.gy.maker.model.DataModel;
 import freemarker.template.TemplateException;
 
 import java.io.File;
@@ -10,11 +11,11 @@ import java.io.IOException;
 /**
  * 核心生成器
  */
-public class MainGenerator {
+public class FileGenerator {
 
     /**
      * 生成
-     * 
+     *
      * @param model 数据模型
      * @throws TemplateException
      * @throws IOException
@@ -26,22 +27,25 @@ public class MainGenerator {
         // 输入路径
         String inputPath = new File(parentFile, "generator-demo-projects/acm-template").getAbsolutePath();
         String outputPath = projectPath;
+
         System.out.println("inputPath:"+inputPath);
         System.out.println("outputPath:"+outputPath);
-
-       // 生成静态文件
-        StaticGenerator.copyFilesByHutool(inputPath, outputPath);
+        // 生成静态文件
+        StaticFileGenerator.copyFilesByHutool(inputPath, outputPath);
 
         // 生成动态文件
         String inputDynamicFilePath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
         String outputDynamicFilePath = outputPath + File.separator + "acm-template/src/com/gy/acm/MainTemplate.java";
+
+
         System.out.println("inputDynamicFilePath:"+inputDynamicFilePath);
         System.out.println("outputDynamicFilePath:"+outputDynamicFilePath);
-        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
+
+        DynamicFileGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 
     public static void main(String[] args) throws IOException, TemplateException {
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
+        DataModel mainTemplateConfig = new DataModel();
         mainTemplateConfig.setAuthor("秋秋南");
         mainTemplateConfig.setLoop(false);
         mainTemplateConfig.setOutputText("求和结果：");
