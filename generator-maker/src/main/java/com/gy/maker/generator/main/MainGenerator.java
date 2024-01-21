@@ -6,6 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import com.gy.maker.generator.file.DynamicFileGenerator;
 import com.gy.maker.meta.Meta;
 import com.gy.maker.meta.MetaManager;
+import com.gy.maker.model.MainTemplateConfig;
 import freemarker.template.TemplateException;
 
 import java.io.File;
@@ -72,6 +73,23 @@ public class MainGenerator {
         // Main
         inputFilePath = inputResourcePath + File.separator + "templates/java/Main.java.ftl";
         outputFilePath = outputBaseJavaPackagePath + "/Main.java";
+        DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
+
+        //--------------------------------------------------------------------------------------------------------------------
+
+       // generator.DynamicGenerator
+        inputFilePath = inputResourcePath + File.separator + "templates/java/generator/DynamicGenerator.java.ftl";
+        outputFilePath = outputBaseJavaPackagePath + "/generator/DynamicGenerator.java";
+        DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
+
+        // generator.MainGenerator
+        inputFilePath = inputResourcePath + File.separator + "templates/java/generator/MainGenerator.java.ftl";
+        outputFilePath = outputBaseJavaPackagePath + "/generator/MainGenerator.java";
+        DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
+
+        // generator.StaticGenerator
+        inputFilePath = inputResourcePath + File.separator + "templates/java/generator/StaticGenerator.java.ftl";
+        outputFilePath = outputBaseJavaPackagePath + "/generator/StaticGenerator.java";
         DynamicFileGenerator.doGenerate(inputFilePath , outputFilePath, meta);
     }
 }
