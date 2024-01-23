@@ -6,8 +6,9 @@
   "author": "秋秋南",
   "createTime": "2024-1-21",
   "fileConfig": { 
-    "inputRootPath": "E:/桌面/generator/generator-demo-projects/acm-template-pro",
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
+    "sourceRootPath": "E:/桌面/generator/generator-demo-projects/acm-template-pro",
     "type": "dir",
     "files": [
       {
