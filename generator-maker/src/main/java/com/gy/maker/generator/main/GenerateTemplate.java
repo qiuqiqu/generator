@@ -6,7 +6,6 @@ import cn.hutool.core.util.StrUtil;
 import com.gy.maker.generator.JarGenerator;
 import com.gy.maker.generator.ScriptGenerator;
 import com.gy.maker.generator.file.DynamicFileGenerator;
-import com.gy.maker.generator.file.StaticFileGenerator;
 import com.gy.maker.meta.Meta;
 import com.gy.maker.meta.MetaManager;
 import freemarker.template.TemplateException;
@@ -18,7 +17,6 @@ public abstract class GenerateTemplate {
 
     public void doGenerate() throws TemplateException, IOException, InterruptedException {
         Meta meta = MetaManager.getMetaObject();
-
         // 0、输出根路径
         String projectPath = System.getProperty("user.dir");
         String outputPath = projectPath + File.separator + "generated" + File.separator + meta.getName();
