@@ -1,18 +1,13 @@
-package com.gy.acm;
-
 import java.util.Scanner;
 
 /**
  * ACM 输入模板（多数之和）
- * @author ${author!''}
  */
 public class MainTemplate {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-<#if loop>
         while (scanner.hasNext()) {
-</#if>
             // 读取输入元素个数
             int n = scanner.nextInt();
 
@@ -29,10 +24,9 @@ public class MainTemplate {
                 sum += num;
             }
 
-            System.out.println("${outputText!'sum = '}" + sum);
-<#if loop>
+            System.out.println("${outputText}" + sum);
         }
-</#if>
+
         scanner.close();
     }
 }

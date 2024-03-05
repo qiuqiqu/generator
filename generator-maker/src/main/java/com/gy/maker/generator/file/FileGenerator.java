@@ -1,8 +1,6 @@
 package com.gy.maker.generator.file;
 
 
-
-import com.gy.maker.model.DataModel;
 import freemarker.template.TemplateException;
 
 import java.io.File;
@@ -44,11 +42,5 @@ public class FileGenerator {
         DynamicFileGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 
-    public static void main(String[] args) throws IOException, TemplateException {
-        DataModel mainTemplateConfig = new DataModel();
-        mainTemplateConfig.setAuthor("秋秋南");
-        mainTemplateConfig.setLoop(false);
-        mainTemplateConfig.setOutputText("求和结果：");
-        doGenerate(mainTemplateConfig);
-    }
+
 }
