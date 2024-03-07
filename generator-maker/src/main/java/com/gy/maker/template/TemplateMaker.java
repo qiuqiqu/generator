@@ -2,6 +2,7 @@ package com.gy.maker.template;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
@@ -16,9 +17,7 @@ import com.gy.maker.template.model.TemplateMakerFileConfig;
 
 import java.io.File;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TemplateMaker {
@@ -195,7 +194,7 @@ public class TemplateMaker {
         String projectPath = System.getProperty("user.dir");
         String originProjectPath = new File(projectPath).getParent() + File.separator + "generator-demo-projects/springboot-init";
         String inputFilePath1 = "src/main/java/com/gy/springbootinit/common";
-        String inputFilePath2 = "src/main/java/com/gy/springbootinit/controller";
+        String inputFilePath2 = "src/main/java/com/gy/springbootinit/constant";
         List<String> inputFilePathList = Arrays.asList(inputFilePath1, inputFilePath2);
 
         // 模型参数信息（首次）
@@ -259,7 +258,45 @@ public class TemplateMaker {
      * @return
      */
     private static List<Meta.FileConfig.FileInfo> distinctFiles(List<Meta.FileConfig.FileInfo> fileInfoList) {
-        List<Meta.FileConfig.FileInfo> newFileInfoList = new ArrayList<>(fileInfoList.stream().collect(Collectors.toMap(Meta.FileConfig.FileInfo::getInputPath, o -> o, (e, r) -> r)).values());
-        return newFileInfoList;
+        // 策略：同分组内文件 merge，不同分组保留
+
+        // 1. 有分组的，以组为单位划分
+        Map<String, List<Meta.FileConfig.FileInfo>> groupKeyFileInfoListMap = fileInfoList
+                .stream()
+                .filter(fileInfo -> StrUtil.isNotBlank(fileInfo.getGroupKey()))
+                .collect(
+                        Collectors.groupingBy(Meta.FileConfig.FileInfo::getGroupKey)
+                );
+
+
+        // 2. 同组内的文件配置合并
+        // 保存每个组对应的合并后的对象 map
+        Map<String, Meta.FileConfig.FileInfo> groupKeyMergedFileInfoMap = new HashMap<>();
+        for (Map.Entry<String, List<Meta.FileConfig.FileInfo>> entry : groupKeyFileInfoListMap.entrySet()) {
+            List<Meta.FileConfig.FileInfo> tempFileInfoList = entry.getValue();
+            List<Meta.FileConfig.FileInfo> newFileInfoList = new ArrayList<>(tempFileInfoList.stream()
+                    .flatMap(fileInfo -> fileInfo.getFiles().stream())
+                    .collect(
+                            Collectors.toMap(Meta.FileConfig.FileInfo::getInputPath, o -> o, (e, r) -> r)
+                    ).values());
+
+            // 使用新的 group 配置
+            Meta.FileConfig.FileInfo newFileInfo = CollUtil.getLast(tempFileInfoList);
+            newFileInfo.setFiles(newFileInfoList);
+            String groupKey = entry.getKey();
+            groupKeyMergedFileInfoMap.put(groupKey, newFileInfo);
+        }
+
+        // 3. 将文件分组添加到结果列表
+        List<Meta.FileConfig.FileInfo> resultList = new ArrayList<>(groupKeyMergedFileInfoMap.values());
+
+        // 4. 将未分组的文件添加到结果列表
+        List<Meta.FileConfig.FileInfo> noGroupFileInfoList = fileInfoList.stream().filter(fileInfo -> StrUtil.isBlank(fileInfo.getGroupKey()))
+                .collect(Collectors.toList());
+        resultList.addAll(new ArrayList<>(noGroupFileInfoList.stream()
+                .collect(
+                        Collectors.toMap(Meta.FileConfig.FileInfo::getInputPath, o -> o, (e, r) -> r)
+                ).values()));
+        return resultList;
     }
 }
