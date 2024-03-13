@@ -1,8 +1,6 @@
 package com.gy.maker.meta;
 
-public class MetaException extends RuntimeException{
-    public MetaException() {
-    }
+public class MetaException extends RuntimeException {
 
     public MetaException(String message) {
         super(message);

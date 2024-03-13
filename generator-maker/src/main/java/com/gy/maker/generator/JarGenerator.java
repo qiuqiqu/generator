@@ -1,10 +1,8 @@
 package com.gy.maker.generator;
 
 import java.io.*;
+import java.util.Map;
 
-/**
- * 构建jar包
- */
 public class JarGenerator {
 
     public static void doGenerate(String projectDir) throws IOException, InterruptedException {
@@ -13,11 +11,12 @@ public class JarGenerator {
         String winMavenCommand = "mvn.cmd clean package -DskipTests=true";
         String otherMavenCommand = "mvn clean package -DskipTests=true";
         String mavenCommand = winMavenCommand;
-        
+
         // 这里一定要拆分！
         ProcessBuilder processBuilder = new ProcessBuilder(mavenCommand.split(" "));
         processBuilder.directory(new File(projectDir));
-
+        Map<String, String> environment = processBuilder.environment();
+        System.out.println(environment);
         Process process = processBuilder.start();
 
         // 读取命令的输出
@@ -34,6 +33,6 @@ public class JarGenerator {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        doGenerate("E:\\桌面\\generator\\generator-maker\\generated\\acm-template-pro-generator");
+        doGenerate("");
     }
 }

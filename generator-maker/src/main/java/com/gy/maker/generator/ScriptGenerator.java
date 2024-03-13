@@ -11,9 +11,6 @@ import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.util.Set;
 
-/**
- * 自动生成脚本文件了
- */
 public class ScriptGenerator {
 
     public static void doGenerate(String outputPath, String jarPath) throws IOException {
@@ -28,7 +25,7 @@ public class ScriptGenerator {
             Set<PosixFilePermission> permissions = PosixFilePermissions.fromString("rwxrwxrwx");
             Files.setPosixFilePermissions(Paths.get(outputPath), permissions);
         } catch (Exception e) {
-            
+
         }
 
         // windows

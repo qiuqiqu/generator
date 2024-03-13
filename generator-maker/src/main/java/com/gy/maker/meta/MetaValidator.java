@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
  */
 public class MetaValidator {
 
-
     public static void doValidAndFill(Meta meta) {
         validAndFillMetaRoot(meta);
         validAndFillFileConfig(meta);
@@ -46,13 +45,13 @@ public class MetaValidator {
                 modelInfo.setAllArgsStr(allArgsStr);
                 continue;
             }
+
             // 输出路径默认值
             String fieldName = modelInfo.getFieldName();
             if (StrUtil.isBlank(fieldName)) {
                 throw new MetaException("未填写 fieldName");
             }
 
-            // 模型配置
             String modelInfoType = modelInfo.getType();
             if (StrUtil.isEmpty(modelInfoType)) {
                 modelInfo.setType(ModelTypeEnum.STRING.getValue());
@@ -84,7 +83,7 @@ public class MetaValidator {
             fileConfig.setOutputRootPath(defaultOutputRootPath);
         }
         String fileConfigType = fileConfig.getType();
-        String defaultType = "dir";
+        String defaultType = FileTypeEnum.DIR.getValue();
         if (StrUtil.isEmpty(fileConfigType)) {
             fileConfig.setType(defaultType);
         }
@@ -133,12 +132,11 @@ public class MetaValidator {
         }
     }
 
-
     public static void validAndFillMetaRoot(Meta meta) {
         // 校验并填充默认值
         String name = StrUtil.blankToDefault(meta.getName(), "my-generator");
         String description = StrUtil.emptyToDefault(meta.getDescription(), "我的模板代码生成器");
-        String author = StrUtil.emptyToDefault(meta.getAuthor(), "秋秋南");
+        String author = StrUtil.emptyToDefault(meta.getAuthor(), "gy");
         String basePackage = StrUtil.blankToDefault(meta.getBasePackage(), "com.gy");
         String version = StrUtil.emptyToDefault(meta.getVersion(), "1.0");
         String createTime = StrUtil.emptyToDefault(meta.getCreateTime(), DateUtil.now());
@@ -149,5 +147,4 @@ public class MetaValidator {
         meta.setVersion(version);
         meta.setCreateTime(createTime);
     }
-
 }
